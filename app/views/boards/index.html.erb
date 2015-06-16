@@ -1,0 +1,9 @@
+<h1>Welcome to TrackerHacker</h1>
+
+<% @boards.each do |board| %>
+
+  <%= link_to "#{board.title}", board_path(board), class: "board-link" %>
+
+<% end %>
+
+<%= link_to "New Board", new_board_path %>

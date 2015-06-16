@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <strong>Title:</strong>
+  <%= @board.title %>
+</h2>
+
+<%= link_to 'Create a New Ticket', new_boards_ticket_path %> |
+
+<div class="Backlog">
+  <h3>Backlog</h3>
+  <% @board.tickets.backlog.each do |ticket| %>
+    <h4><%= link_to "#{ticket.title}", boards_ticket_path(ticket) %></h4>
+    <p>
+      <%= ticket.description %>
+    </p>
+  <% end %>
+</div>
+
+<div class="Current-Sprint">
+  <h3>Current Sprint</h3>
+  <% @board.tickets.current_sprint.each do |ticket| %>
+    <h4><%= link_to "#{ticket.title}", boards_ticket_path(ticket) %></h4>
+    <p>
+      <%= ticket.description %>
+    </p>
+  <% end %>
+</div>
+
+<div class="In-Progress">
+  <h3>In Progress</h3>
+  <% @board.tickets.in_progress.each do |ticket| %>
+    <h4><%= link_to "#{ticket.title}", boards_ticket_path(ticket) %></h4>
+    <p>
+      <%= ticket.description %>
+    </p>
+  <% end %>
+</div>
+
+<div class="Done">
+  <h3>Done</h3>
+  <% @board.tickets.done.each do |ticket| %>
+    <h4><%= link_to "#{ticket.title}", boards_ticket_path(ticket) %></h4>
+    <p>
+      <%= ticket.description %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to 'Edit your board title', edit_board_path(@board) %> |
+<%= link_to 'Back to Home', boards_path %>
